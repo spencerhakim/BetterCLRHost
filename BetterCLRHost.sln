@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BetterCLRHost.Plugin", "BetterCLRHost.Plugin\BetterCLRHost.Plugin.vcxproj", "{325280F8-D04B-417D-BBF5-A2CAA71136DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterCLRHost.Interop", "BetterCLRHost.Interop\BetterCLRHost.Interop.csproj", "{BD1D87E9-95B3-41EB-876C-868F27F7EC97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterCLRHost.Tests", "BetterCLRHost.Tests\BetterCLRHost.Tests.csproj", "{3BF7CE70-2275-4EA7-A164-E1A292B35545}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Debug|x64.ActiveCfg = Debug|x64
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Debug|x64.Build.0 = Debug|x64
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Debug|x86.ActiveCfg = Debug|Win32
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Debug|x86.Build.0 = Debug|Win32
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Release|x64.ActiveCfg = Release|x64
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Release|x64.Build.0 = Release|x64
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Release|x86.ActiveCfg = Release|Win32
+		{325280F8-D04B-417D-BBF5-A2CAA71136DF}.Release|x86.Build.0 = Release|Win32
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Debug|x64.ActiveCfg = Debug|x64
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Debug|x64.Build.0 = Debug|x64
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Debug|x86.ActiveCfg = Debug|x86
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Debug|x86.Build.0 = Debug|x86
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Release|x64.ActiveCfg = Release|x64
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Release|x64.Build.0 = Release|x64
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Release|x86.ActiveCfg = Release|x86
+		{BD1D87E9-95B3-41EB-876C-868F27F7EC97}.Release|x86.Build.0 = Release|x86
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Debug|x64.ActiveCfg = Debug|x64
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Debug|x64.Build.0 = Debug|x64
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Debug|x86.ActiveCfg = Debug|x86
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Debug|x86.Build.0 = Debug|x86
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Release|x64.ActiveCfg = Release|x64
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Release|x64.Build.0 = Release|x64
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Release|x86.ActiveCfg = Release|x86
+		{3BF7CE70-2275-4EA7-A164-E1A292B35545}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
