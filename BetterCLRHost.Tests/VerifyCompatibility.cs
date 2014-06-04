@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace BetterCLRHost.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class VerifyCompatibility
     {
         private IEnumerable<Type> origTypes;
         private IEnumerable<Type> bttrTypes;
 
-        [TestInitialize]
+        [TestFixtureSetUp]
         public void Init()
         {
             //figure out paths, can't reference this stuff directly
@@ -33,7 +33,6 @@ namespace BetterCLRHost.Tests
 #endif
             );
 
-
             //handle loading reflection-only dependencies
             AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve += (s, a) => {
                 try
@@ -51,9 +50,21 @@ namespace BetterCLRHost.Tests
             bttrTypes = Assembly.ReflectionOnlyLoadFrom(bttrCLRHostPath + @"\CLRHost.Interop.dll").GetExportedTypes().Where( x => x.Namespace == "CLROBS" );
         }
 
-        [TestMethod]
+        [Test]
         public void VerifyInterfaces()
         {
+            //Need to do it this way because http://stackoverflow.com/a/1522698/489071
+            Func<IEnumerable<Type>, Func<Type, bool>, IEnumerable<dynamic>> crappyGetMembers = (collection, predicate) => {
+                return collection.Where( x=> predicate(x) )
+                    .SelectMany( x => x.GetMembers()
+                        .Where( y => 
+                            (y is MethodBase && ((y as MethodBase).IsFamily || (y as MethodBase).IsPublic)) ||
+                            (y is FieldInfo && ((y as FieldInfo).IsFamily  || (y as FieldInfo).IsPublic)) ||
+                            (y is PropertyInfo) || (y is EventInfo)
+                        )
+                        .Select( y => Tuple.Create(x.FullName, y.ToString(), attributes(y)) ));
+            };
+
             //compare interface names
             {
                 Func<IEnumerable<Type>, IEnumerable<string>> func = t =>
@@ -69,15 +80,15 @@ namespace BetterCLRHost.Tests
 
             //compare interface members
             {
-                var origInterfaceMembers = getMembers(origTypes, x => x.IsInterface);
-                var bttrInterfaceMembers = getMembers(bttrTypes, x => x.IsInterface);
+                var origInterfaceMembers = crappyGetMembers(origTypes, x => x.IsInterface);
+                var bttrInterfaceMembers = crappyGetMembers(bttrTypes, x => x.IsInterface);
                 var missing = origInterfaceMembers.Except(bttrInterfaceMembers).ToList();
 
                 Assert.IsFalse(missing.Any(), "Failed to verify interface members\n" + String.Join("\n", missing));
             }
         }
         
-        [TestMethod]
+        [Test]
         public void VerifyAbstracts()
         {
             //compare abstract names
@@ -103,7 +114,7 @@ namespace BetterCLRHost.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void VerifyConcretes()
         {
             //compare concrete names
