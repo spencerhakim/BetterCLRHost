@@ -4,6 +4,8 @@
  * eventually be removed. Maybe not. We'll see.
  */
 
+#if COMPATIBILITY
+
 using System;
 
 namespace CLROBS
@@ -16,7 +18,10 @@ namespace CLROBS
     public interface ImageSource : Interfaces.IImageSource { }
 
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface ImageSourceFactory : Interfaces.IImageSourceFactory { }
+    public interface ImageSourceFactory : Interfaces.IImageSourceFactory
+    {
+        new ImageSource Create(XElement data);
+    }
 
     [Obsolete("This interface provided for compatibility purposes only")]
     public interface SettingsPane : Interfaces.ISettingsPane { }
@@ -24,25 +29,30 @@ namespace CLROBS
 
     #region Abstracts
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractImageSource : Abstracts.AbstractImageSource
+    public abstract class AbstractImageSource : Abstracts.AbstractImageSource, ImageSource
     {
         public AbstractImageSource() : base() { }
     }
 
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractImageSourceFactory : Abstracts.AbstractImageSourceFactory
+    public abstract class AbstractImageSourceFactory : Abstracts.AbstractImageSourceFactory, ImageSourceFactory
     {
         public AbstractImageSourceFactory() : base() { }
+
+        ImageSource ImageSourceFactory.Create(XElement data)
+        {
+            return (ImageSource)Create(data);
+        }
     }
 
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractPlugin : Abstracts.AbstractPlugin
+    public abstract class AbstractPlugin : Abstracts.AbstractPlugin, Plugin
     {
         public AbstractPlugin() : base() { }
     }
 
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractWPFSettingsPane : Abstracts.AbstractWPFSettingsPane
+    public abstract class AbstractWPFSettingsPane : Abstracts.AbstractWPFSettingsPane, SettingsPane
     {
         public AbstractWPFSettingsPane() : base() { }
     }
@@ -56,3 +66,5 @@ namespace CLROBS
     }
     #endregion
 }
+
+#endif

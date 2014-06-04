@@ -9,80 +9,80 @@ namespace CLROBS.Abstracts
     {
         #region Enums
         [Flags]
-        enum WindowStyles : uint
+        enum WS : uint
         {
-            WS_OVERLAPPED      = 0x00000000,
-            WS_POPUP           = 0x80000000,
-            WS_CHILD           = 0x40000000,
-            WS_MINIMIZE        = 0x20000000,
-            WS_VISIBLE         = 0x10000000,
-            WS_DISABLED        = 0x08000000,
-            WS_CLIPSIBLINGS    = 0x04000000,
-            WS_CLIPCHILDREN    = 0x02000000,
-            WS_MAXIMIZE        = 0x01000000,
-            WS_BORDER          = 0x00800000,
-            WS_DLGFRAME        = 0x00400000,
-            WS_VSCROLL         = 0x00200000,
-            WS_HSCROLL         = 0x00100000,
-            WS_SYSMENU         = 0x00080000,
-            WS_THICKFRAME      = 0x00040000,
-            WS_GROUP           = 0x00020000,
-            WS_TABSTOP         = 0x00010000,
+            OVERLAPPED      = 0x00000000,
+            POPUP           = 0x80000000,
+            CHILD           = 0x40000000,
+            MINIMIZE        = 0x20000000,
+            VISIBLE         = 0x10000000,
+            DISABLED        = 0x08000000,
+            CLIPSIBLINGS    = 0x04000000,
+            CLIPCHILDREN    = 0x02000000,
+            MAXIMIZE        = 0x01000000,
+            BORDER          = 0x00800000,
+            DLGFRAME        = 0x00400000,
+            VSCROLL         = 0x00200000,
+            HSCROLL         = 0x00100000,
+            SYSMENU         = 0x00080000,
+            THICKFRAME      = 0x00040000,
+            GROUP           = 0x00020000,
+            TABSTOP         = 0x00010000,
 
-            WS_MINIMIZEBOX     = 0x00020000,
-            WS_MAXIMIZEBOX     = 0x00010000,
+            MINIMIZEBOX     = 0x00020000,
+            MAXIMIZEBOX     = 0x00010000,
 
-            WS_CAPTION         = WS_BORDER | WS_DLGFRAME,
-            WS_TILED           = WS_OVERLAPPED,
-            WS_ICONIC          = WS_MINIMIZE,
-            WS_SIZEBOX         = WS_THICKFRAME,
-            WS_TILEDWINDOW     = WS_OVERLAPPEDWINDOW,
+            CAPTION         = BORDER | DLGFRAME,
+            TILED           = OVERLAPPED,
+            ICONIC          = MINIMIZE,
+            SIZEBOX         = THICKFRAME,
+            TILEDWINDOW     = OVERLAPPEDWINDOW,
 
-            WS_OVERLAPPEDWINDOW    = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX,
-            WS_POPUPWINDOW     = WS_POPUP | WS_BORDER | WS_SYSMENU,
-            WS_CHILDWINDOW     = WS_CHILD,
+            OVERLAPPEDWINDOW    = OVERLAPPED | CAPTION | SYSMENU | THICKFRAME | MINIMIZEBOX | MAXIMIZEBOX,
+            POPUPWINDOW     = POPUP | BORDER | SYSMENU,
+            CHILDWINDOW     = CHILD,
 
             //Extended Window Styles
-            WS_EX_DLGMODALFRAME    = 0x00000001,
-            WS_EX_NOPARENTNOTIFY   = 0x00000004,
-            WS_EX_TOPMOST      = 0x00000008,
-            WS_EX_ACCEPTFILES      = 0x00000010,
-            WS_EX_TRANSPARENT      = 0x00000020,
+            EX_DLGMODALFRAME    = 0x00000001,
+            EX_NOPARENTNOTIFY   = 0x00000004,
+            EX_TOPMOST      = 0x00000008,
+            EX_ACCEPTFILES      = 0x00000010,
+            EX_TRANSPARENT      = 0x00000020,
 
             //#if(WINVER >= 0x0400)
-            WS_EX_MDICHILD     = 0x00000040,
-            WS_EX_TOOLWINDOW       = 0x00000080,
-            WS_EX_WINDOWEDGE       = 0x00000100,
-            WS_EX_CLIENTEDGE       = 0x00000200,
-            WS_EX_CONTEXTHELP      = 0x00000400,
+            EX_MDICHILD     = 0x00000040,
+            EX_TOOLWINDOW       = 0x00000080,
+            EX_WINDOWEDGE       = 0x00000100,
+            EX_CLIENTEDGE       = 0x00000200,
+            EX_CONTEXTHELP      = 0x00000400,
 
-            WS_EX_RIGHT        = 0x00001000,
-            WS_EX_LEFT         = 0x00000000,
-            WS_EX_RTLREADING       = 0x00002000,
-            WS_EX_LTRREADING       = 0x00000000,
-            WS_EX_LEFTSCROLLBAR    = 0x00004000,
-            WS_EX_RIGHTSCROLLBAR   = 0x00000000,
+            EX_RIGHT        = 0x00001000,
+            EX_LEFT         = 0x00000000,
+            EX_RTLREADING       = 0x00002000,
+            EX_LTRREADING       = 0x00000000,
+            EX_LEFTSCROLLBAR    = 0x00004000,
+            EX_RIGHTSCROLLBAR   = 0x00000000,
 
-            WS_EX_CONTROLPARENT    = 0x00010000,
-            WS_EX_STATICEDGE       = 0x00020000,
-            WS_EX_APPWINDOW    = 0x00040000,
+            EX_CONTROLPARENT    = 0x00010000,
+            EX_STATICEDGE       = 0x00020000,
+            EX_APPWINDOW    = 0x00040000,
 
-            WS_EX_OVERLAPPEDWINDOW = (WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE),
-            WS_EX_PALETTEWINDOW    = (WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST),
+            EX_OVERLAPPEDWINDOW = (EX_WINDOWEDGE | EX_CLIENTEDGE),
+            EX_PALETTEWINDOW    = (EX_WINDOWEDGE | EX_TOOLWINDOW | EX_TOPMOST),
             //#endif /* WINVER >= 0x0400 */
 
             //#if(WIN32WINNT >= 0x0500)
-            WS_EX_LAYERED      = 0x00080000,
+            EX_LAYERED      = 0x00080000,
             //#endif /* WIN32WINNT >= 0x0500 */
 
             //#if(WINVER >= 0x0500)
-            WS_EX_NOINHERITLAYOUT  = 0x00100000,    // Disable inheritence of mirroring by children
-            WS_EX_LAYOUTRTL    = 0x00400000,        // Right to left mirroring
+            EX_NOINHERITLAYOUT  = 0x00100000,    // Disable inheritence of mirroring by children
+            EX_LAYOUTRTL    = 0x00400000,        // Right to left mirroring
             //#endif /* WINVER >= 0x0500 */
 
             //#if(WIN32WINNT >= 0x0500)
-            WS_EX_COMPOSITED       = 0x02000000,
-            WS_EX_NOACTIVATE       = 0x08000000
+            EX_COMPOSITED       = 0x02000000,
+            EX_NOACTIVATE       = 0x08000000
             //#endif /* WIN32WINNT >= 0x0500 */
         }
 
@@ -91,7 +91,7 @@ namespace CLROBS.Abstracts
         /// Defined in winuser.h from Windows SDK v6.1
         /// Documentation pulled from MSDN.
         /// </summary>
-        enum WM : uint
+        enum WM 
         {
             /// <summary>
             /// The WM_NULL message performs no operation. An application sends the WM_NULL message if it wants to post a message that the recipient window will ignore.
@@ -1051,30 +1051,31 @@ namespace CLROBS.Abstracts
             HSHELL_WINDOWREPLACED = 13
         }
 
+        [Flags]
         enum DLGC
         {
             /// <summary> Control is a button (of any kind). </summary>
-            DLGC_BUTTON = 0x2000,
+            BUTTON = 0x2000,
             /// <summary> Control is a default push button. </summary>
-            DLGC_DEFPUSHBUTTON = 0x0010,
+            DEFPUSHBUTTON = 0x0010,
             /// <summary> Windows will send an EM_SETSEL message to the control to select its contents. </summary>
-            DLGC_HASSETSEL = 0x0008,
+            HASSETSEL = 0x0008,
             /// <summary> Control is an option (radio) button. </summary>
-            DLGC_RADIOBUTTON = 0x0040,
+            RADIOBUTTON = 0x0040,
             /// <summary> Control is a static control. </summary>
-            DLGC_STATIC = 0x0100,
+            STATIC = 0x0100,
             /// <summary> Control is a push button but not the default push button. </summary>
-            DLGC_UNDEFPUSHBUTTON = 0x0020,
+            UNDEFPUSHBUTTON = 0x0020,
             /// <summary> Control processes all keyboard input. </summary>
-            DLGC_WANTALLKEYS = 0x0004,
+            WANTALLKEYS = 0x0004,
             /// <summary> Control processes arrow keys. </summary>
-            DLGC_WANTARROWS = 0x0001,
+            WANTARROWS = 0x0001,
             /// <summary> Control processes WM_CHAR messages. </summary>
-            DLGC_WANTCHARS = 0x0080,
+            WANTCHARS = 0x0080,
             /// <summary> Control processes the message in the MSG structure that lParam points to. </summary>
-            DLGC_WANTMESSAGE = 0x0004,
+            WANTMESSAGE = 0x0004,
             /// <summary> Control processes the TAB key. </summary>
-            DLGC_WANTTAB = 0x0002
+            WANTTAB = 0x0002
         }
         #endregion
 
@@ -1095,21 +1096,15 @@ namespace CLROBS.Abstracts
             }
         }
 
-        [Obsolete("Use the IntPtr version of this method")]
-        public long CreatePane(long parentHwnd)
-        {
-            return CreatePane(new IntPtr(parentHwnd)).ToInt64();
-        }
-
-        public IntPtr CreatePane(IntPtr parentHwnd)
+        public void CreatePane(IntPtr parentHwnd)
         {
             _hwndSource = new HwndSource(
-                0,                                                                                      // class style
-                /*DS_CONTROL*/ 0x00000400 | (int)WindowStyles.WS_CHILD | (int)WindowStyles.WS_SYSMENU,  // style
-                (int)WindowStyles.WS_EX_CONTROLPARENT,                                                  // exstyle
-                0, 0, (int)(427 * 1.5), (int)(336 * 1.5),                                               // why do I have to do this?
-                "Helllo!",                                                                              // name
-                parentHwnd                                                                              // parent window
+                0,                                                              // class style
+                /*DS_CONTROL*/ 0x00000400 | (int)WS.CHILD | (int)WS.SYSMENU,    // style
+                (int)WS.EX_CONTROLPARENT,                                       // exstyle
+                0, 0, (int)(427 * 1.5), (int)(336 * 1.5),                       // why do I have to do this?
+                "",                                                             // name
+                parentHwnd                                                      // parent window
             );
 
             // hook all keyboard keys
@@ -1118,8 +1113,6 @@ namespace CLROBS.Abstracts
 
             _hwndSource.RootVisual = CreateUIElement();
             _hwndSource.CompositionTarget.BackgroundColor = SystemColors.ControlColor;
-
-            return _hwndSource.Handle;
         }
 
         private static IntPtr childHwndSourceHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
@@ -1127,7 +1120,7 @@ namespace CLROBS.Abstracts
             if( (WM)msg == WM.GETDLGCODE )
             {
                 handled = true;
-                return new IntPtr((int)DLGC.DLGC_WANTALLKEYS);
+                return new IntPtr((int)DLGC.WANTALLKEYS);
             }
 
             return IntPtr.Zero;
