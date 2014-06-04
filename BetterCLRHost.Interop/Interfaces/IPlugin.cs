@@ -1,4 +1,4 @@
-﻿namespace CLROBS.Interfaces
+﻿namespace BetterCLRHost.Interfaces
 {
     public interface IPlugin
     {
@@ -24,7 +24,7 @@
         void OnScenesChanged();
 
         void OnSourceOrderChanged();
-        void OnSourceChanged(string sourceName, XElement source);
+        void OnSourceChanged(string sourceName, CLROBS.XElement source);
         void OnSourcesAddedOrRemoved();
 
         void OnMicVolumeChanged(float level, bool muted, bool finalValue);

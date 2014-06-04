@@ -14,7 +14,7 @@
  * Modified by Spencer Hakim
  */
 
-namespace CLROBS
+namespace BetterCLRHost
 {
     using System;
     using System.Threading;

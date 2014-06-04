@@ -12,30 +12,30 @@ namespace CLROBS
 {
     #region Interfaces
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface Plugin : Interfaces.IPlugin { }
+    public interface Plugin : BetterCLRHost.Interfaces.IPlugin { }
     
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface ImageSource : Interfaces.IImageSource { }
+    public interface ImageSource : BetterCLRHost.Interfaces.IImageSource { }
 
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface ImageSourceFactory : Interfaces.IImageSourceFactory
+    public interface ImageSourceFactory : BetterCLRHost.Interfaces.IImageSourceFactory
     {
         new ImageSource Create(XElement data);
     }
 
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface SettingsPane : Interfaces.ISettingsPane { }
+    public interface SettingsPane : BetterCLRHost.Interfaces.ISettingsPane { }
     #endregion
 
     #region Abstracts
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractImageSource : Abstracts.AbstractImageSource, ImageSource
+    public abstract class AbstractImageSource : BetterCLRHost.Abstracts.AbstractImageSource, ImageSource
     {
         public AbstractImageSource() : base() { }
     }
 
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractImageSourceFactory : Abstracts.AbstractImageSourceFactory, ImageSourceFactory
+    public abstract class AbstractImageSourceFactory : BetterCLRHost.Abstracts.AbstractImageSourceFactory, ImageSourceFactory
     {
         public AbstractImageSourceFactory() : base() { }
 
@@ -46,13 +46,13 @@ namespace CLROBS
     }
 
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractPlugin : Abstracts.AbstractPlugin, Plugin
+    public abstract class AbstractPlugin : BetterCLRHost.Abstracts.AbstractPlugin, Plugin
     {
         public AbstractPlugin() : base() { }
     }
 
     [Obsolete("This class provided for compatibility purposes only")]
-    public abstract class AbstractWPFSettingsPane : Abstracts.AbstractWPFSettingsPane, SettingsPane
+    public abstract class AbstractWPFSettingsPane : BetterCLRHost.Abstracts.AbstractWPFSettingsPane, SettingsPane
     {
         public AbstractWPFSettingsPane() : base() { }
     }

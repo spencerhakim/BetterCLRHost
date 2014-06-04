@@ -1,4 +1,6 @@
-﻿namespace CLROBS.Interfaces
+﻿using CLROBS;
+
+namespace BetterCLRHost.Interfaces
 {
     public interface IImageSource
     {

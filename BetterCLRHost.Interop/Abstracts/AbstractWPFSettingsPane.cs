@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Controls;
+using BetterCLRHost.Interfaces;
 
-namespace CLROBS.Abstracts
+namespace BetterCLRHost.Abstracts
 {
-    public abstract class AbstractWPFSettingsPane : DisposableBase, Interfaces.ISettingsPane
+    public abstract class AbstractWPFSettingsPane : DisposableBase, ISettingsPane
     {
         #region Enums
         [Flags]

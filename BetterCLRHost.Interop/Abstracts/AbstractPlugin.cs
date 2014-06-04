@@ -1,6 +1,8 @@
-﻿namespace CLROBS.Abstracts
+﻿using BetterCLRHost.Interfaces;
+
+namespace BetterCLRHost.Abstracts
 {
-    public abstract class AbstractPlugin : Interfaces.IPlugin
+    public abstract class AbstractPlugin : IPlugin
     {
         public string Name { get; protected set; }
         public string Description { get; protected set; }
@@ -30,7 +32,7 @@
         public virtual void OnScenesChanged(){}
 
         public virtual void OnSourceOrderChanged(){}
-        public virtual void OnSourceChanged(string sourceName, XElement source){}
+        public virtual void OnSourceChanged(string sourceName, CLROBS.XElement source){}
         public virtual void OnSourcesAddedOrRemoved(){}
 
         public virtual void OnMicVolumeChanged(float level, bool muted, bool finalValue){}

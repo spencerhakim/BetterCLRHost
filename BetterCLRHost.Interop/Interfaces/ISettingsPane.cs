@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CLROBS.Interfaces
+namespace BetterCLRHost.Interfaces
 {
     public interface ISettingsPane
     {

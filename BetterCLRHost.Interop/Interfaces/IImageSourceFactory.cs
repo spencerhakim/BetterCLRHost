@@ -1,11 +1,11 @@
-﻿namespace CLROBS.Interfaces
+﻿namespace BetterCLRHost.Interfaces
 {
     public interface IImageSourceFactory
     {
         string DisplayName { get; }
         string ClassName { get; }
 
-        IImageSource Create(XElement data);
-        bool ShowConfiguration(XElement data);
+        IImageSource Create(CLROBS.XElement data);
+        bool ShowConfiguration(CLROBS.XElement data);
     }
 }

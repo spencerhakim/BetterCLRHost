@@ -7,7 +7,7 @@
     <ProjectGuid>{BD1D87E9-95B3-41EB-876C-868F27F7EC97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CLROBS</RootNamespace>
+    <RootNamespace>BetterCLRHost</RootNamespace>
     <AssemblyName>CLRHost.Interop</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using BetterCLRHost.Interfaces;
 
-namespace CLROBS.Abstracts
+namespace BetterCLRHost.Abstracts
 {
-    public abstract class AbstractImageSourceFactory : Interfaces.IImageSourceFactory
+    public abstract class AbstractImageSourceFactory : IImageSourceFactory
     {
         public string ClassName { get; protected set; }
         public string DisplayName { get; protected set; }
@@ -16,7 +13,7 @@ namespace CLROBS.Abstracts
             DisplayName = "DefaultImageSourceDisplayName";
         }
 
-        public abstract Interfaces.IImageSource Create(XElement data);
-        public abstract bool ShowConfiguration(XElement data);
+        public abstract IImageSource Create(CLROBS.XElement data);
+        public abstract bool ShowConfiguration(CLROBS.XElement data);
     }
 }

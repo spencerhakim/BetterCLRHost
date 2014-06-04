@@ -1,6 +1,9 @@
-﻿namespace CLROBS.Abstracts
+﻿using CLROBS;
+using BetterCLRHost.Interfaces;
+
+namespace BetterCLRHost.Abstracts
 {
-    public abstract class AbstractImageSource : Interfaces.IImageSource
+    public abstract class AbstractImageSource : IImageSource
     {
         public Vector2 Size { get; set; }
 
