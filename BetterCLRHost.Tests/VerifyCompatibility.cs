@@ -24,7 +24,7 @@ namespace BetterCLRHost.Tests
             );
             var bttrCLRHostPath = Path.Combine(
                 Environment.CurrentDirectory,
-                @"..\..\..\..\BetterCLRHost.Interop\bin\",
+                @"..\..\..\..\BetterCLRHost.Interop\bin",
                 (Environment.Is64BitProcess ? "x64" : "x86"),
 #if DEBUG
                 @"Debug"
@@ -39,7 +39,7 @@ namespace BetterCLRHost.Tests
                 {
                     return Assembly.ReflectionOnlyLoad(a.Name);
                 }
-                catch
+                catch //pretty hack, but it works
                 {
                     return Assembly.ReflectionOnlyLoadFrom(bttrCLRHostPath + @"\CLRHostPlugin.dll");
                 }

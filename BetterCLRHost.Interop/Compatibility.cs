@@ -12,19 +12,55 @@ namespace CLROBS
 {
     #region Interfaces
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface Plugin : BetterCLRHost.Interfaces.IPlugin { }
+    public interface Plugin
+    {
+        string Name { get; }
+        string Description { get; }
+
+        bool LoadPlugin();
+        void UnloadPlugin();
+
+        void OnStartStream();
+        void OnStopStream();
+    }
     
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface ImageSource : BetterCLRHost.Interfaces.IImageSource { }
-
-    [Obsolete("This interface provided for compatibility purposes only")]
-    public interface ImageSourceFactory : BetterCLRHost.Interfaces.IImageSourceFactory
+    public interface ImageSource
     {
-        new ImageSource Create(XElement data);
+        Vector2 Size { get; set; }
+
+        void UpdateSettings();
+        void Preprocess();
+        void Tick(float seconds);
+        void Render(float x, float y, float width, float height);
+        void BeginScene();
+        void EndScene();
     }
 
     [Obsolete("This interface provided for compatibility purposes only")]
-    public interface SettingsPane : BetterCLRHost.Interfaces.ISettingsPane { }
+    public interface ImageSourceFactory
+    {
+        string DisplayName { get; }
+        string ClassName { get; }
+
+        ImageSource Create(XElement data);
+        bool ShowConfiguration(XElement data);
+    }
+
+    [Obsolete("This interface provided for compatibility purposes only")]
+    public interface SettingsPane
+    {
+        void CreatePane(IntPtr parentHwnd);
+        void DestroyPane();
+
+        void ApplySettings();
+        void CancelSettings();
+
+        bool HasDefaults();
+        void SetDefaults();
+
+        string GetCategory();
+    }
     #endregion
 
     #region Abstracts
@@ -55,6 +91,8 @@ namespace CLROBS
     public abstract class AbstractWPFSettingsPane : BetterCLRHost.Abstracts.AbstractWPFSettingsPane, SettingsPane
     {
         public AbstractWPFSettingsPane() : base() { }
+
+        public abstract string GetCategory();
     }
     #endregion
 

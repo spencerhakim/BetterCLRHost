@@ -1080,6 +1080,7 @@ namespace BetterCLRHost.Abstracts
         #endregion
 
         private HwndSource _hwndSource;
+
         public string Category { get; protected set; }
 
         public AbstractWPFSettingsPane()
